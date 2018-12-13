@@ -4,7 +4,7 @@ let wind;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  // const song = loadSound('longfirework.mp3', () => song.play());
+  const song = loadSound('longfirework.mp3', () => song.play());
   stroke(255);
   strokeWeight(4);
   grav = createVector(0, 0.2);
