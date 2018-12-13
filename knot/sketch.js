@@ -14,7 +14,7 @@ let vectors = [];
 let beta = 0;
 
 function setup() {
-  fullScreen(WEBGL);
+  createCanvas(windowWidth, windowHeight, WEBGL);
 }
 
 function drawKnot() {
@@ -26,7 +26,7 @@ function drawKnot() {
   let z = r * sin(phi);
 
   vectors.push({ x, y, z }); 
-  beta += 0.01;
+  beta += 0.005;
 
   noFill();
   // stroke(x, y, z);
@@ -35,14 +35,17 @@ function drawKnot() {
   beginShape();
   vectors.map(v => {
     let d = int(dist(v.x, v.y, v.z, 0, 0, 0));
-    // stroke(d);
+    red = map(v.x, -100, 100, 100, 255);
+    gre = map(v.y, -100, 100, 100, 255);
+    stroke(red, gre, d);
     vertex(v.x, v.y, v.z);
   });
   endShape();
 }
 
 function draw() {
-  background(0);
+  background(color(0, 0, 0), 150);
+  // background(0);
   rotateY(angle);
   rotateX(angle);
   rotateZ(angle);
